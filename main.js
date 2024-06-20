@@ -8,7 +8,7 @@ dotenv.config();
 
 const APIURL = process.env.API_URL;
 const cors = require("cors");
-const userRoute = require("./routes/user");
+const userRoute = require("./routes/user.js");
 
 // Middleware
 app.use(express.json());
