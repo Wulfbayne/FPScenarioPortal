@@ -17,9 +17,8 @@ router.post('/add', async (req, res) =>{
     let new_user = new user({
         name: req.body.name,
         uid: req.body.uid,
-        rfid: req.body.rfid || "",
+        role: req.body.rfid || "",
         team: req.body.team || "",
-        unit: req.body.unit || "",
     });
     const hashed = new_user.generateHash(req.body.password);
     hashed.then( async (hash) =>{
