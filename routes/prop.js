@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const prop = require("../models/propModel.js")
+const sectorProp = require("../schemas/sectorProp.js")
 
 
 
