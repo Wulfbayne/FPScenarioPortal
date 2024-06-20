@@ -15,11 +15,10 @@ app.users.create = (username, password) => {
         password: password
     }
     $.when(app.data.addUser(userObj)).done((res) => {
-        appSetting.set("users", res)
         console.log("res", res);
     })
 }
 
-app.users.login = () => {
-
+app.users.updateUser = () => {
+    
 }
