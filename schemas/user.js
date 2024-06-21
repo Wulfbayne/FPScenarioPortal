@@ -14,10 +14,6 @@ const userSchema = new Schema(
     }
 )
 
-// userSchema.pre("save", function(nesxt){
-//     let user = theis
-// })
-
 userSchema.methods.generateHash = async (password) =>{
     let promise = new Promise((resolve,reject) =>{
         console.log(password);
@@ -30,10 +26,6 @@ userSchema.methods.generateHash = async (password) =>{
         })  
     })
     return promise;
-      
-    // const salt = await bcrypt.genSalt();
-    // const hash = await bcrypt.hash(password, salt);
-    // return hash;
 }
 
 const User = mongoose.model("users", userSchema);
