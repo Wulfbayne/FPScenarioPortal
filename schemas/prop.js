@@ -8,8 +8,9 @@ const propSchema = new Schema(
     {
         uid: {type: String, required: true, unique: true},
         name: {type: String, required: true, unique: true},
-        Lat: {type: String},
-        Long: {type: String},
+        type: {type: String, required: true},
+        // Lat: {type: String},
+        // Long: {type: String},
     }, baseOption
 )
 
