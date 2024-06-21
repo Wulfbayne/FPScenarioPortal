@@ -3,7 +3,7 @@ const propSchema = require("./prop.js");
 
 let sectorPropSchema = new propSchema();
 sectorPropSchema.add({
-    type: {type: String, required: true},
+    
     // meta: {type: Array}
 })
 
