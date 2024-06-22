@@ -1,14 +1,13 @@
 const express = require("express");
+const ws = require("WebSocketServer");
 const compression = require('compression');
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-dotenv.config();
-
-const APIURL = process.env.API_URL;
 const cors = require("cors");
 const userRoute = require("./routes/user.js");
+const { WebSocketServer } = require("ws");
 
 // Middleware
 app.use(express.json());
@@ -19,16 +18,38 @@ app.use(APIURL + "/users", userRoute);
 
 // Load Envs
 dotenv.config();
+const APIURL = process.env.API_URL;
 const PORT = process.env.PORT || 8000;
 const MONGOURL = process.env.MONGO_URL;
-
-// Load Index
-app.use("/scenario", express.static(path.join(__dirname, "public")));
 
 // Load DB
 mongoose.connect(MONGOURL)
 .then(() => console.log('Connected!'))
 .catch((error) => console.log(error));
+
+// Load Index
+app.use("/scenario", express.static(path.join(__dirname, "public")));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -88,3 +109,9 @@ app.use((req, res) => {
 app.listen(PORT, () => {
     console.log("App listening on port " + PORT);
 })
+
+
+// Load WSS
+const wss = new WebSocketServer({ noServer: true });
+
+
