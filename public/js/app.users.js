@@ -8,14 +8,18 @@ app.users.loadUsers = () =>{
     return dfd.promise();
 }
 
-app.users.create = (username, password) => {
+app.users.create = (username, password, role) => {
     const userObj = {
         uid: app.svc.generateID(),
         name: username,
-        password: password
+        password: password,
+        role: role
     }
     $.when(app.data.addUser(userObj)).done((res) => {
         console.log("res", res);
+        if (res == 11000){
+            console.log("Duplicate User");
+        }
     })
 }
 

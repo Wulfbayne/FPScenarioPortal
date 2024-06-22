@@ -81,6 +81,10 @@ app.template.exampleTemplate = {
     ]
 }
 
+
+/**
+ * Main Application
+ */
 app.template.contentFrame = {
     objType: "domElement",
     elem: "div",
@@ -185,6 +189,33 @@ app.template.contentFrame = {
     ]
 }
 
+app.template.mainScreen = {
+    objType: "domElement",
+    elem: "div",
+    props: [
+        {key: "class", value: "row justify-content-center"},
+    ],
+    children: [
+        {
+            objType: "domElement",
+            elem: "img",
+            props: [
+                { key: "id", value: "appBanner"},
+                { key: "alt", value: ""},
+                { key: "title", value: "Freedom Park Banner"},
+                // {key: "style", value: "cursor: pointer;"},
+                {key: "src", value: "./assets/banner2.png"},
+                { key: "style", value: "height:50%; width: 50%;"},
+                { key: "class", value: "align-middle"},
+            ],
+            children: []
+        }
+    ]
+}
+
+/**
+ * 
+ */
 app.template.loginCard = {
     objType: "domElement",
     elem: "div",
@@ -257,19 +288,19 @@ app.template.loginCard = {
                                                             elem: "span",
                                                             props: [
                                                                 { key: "class", value: "input-group-text slim" },
-                                                                { key: "id", value: "loginSelectUserInputLabel" }
+                                                                { key: "id", value: "loginUserInputLabel" }
                                                             ],
                                                             children: [
-                                                                { objType: "textNode", content: "User" }
+                                                                { objType: "textNode", content: "User Name" }
                                                             ]
                                                         },
                                                         {
                                                             objType: "domElement",
-                                                            elem: "select",
+                                                            elem: "input",
                                                             props: [
-                                                                { key: "class", value: "form-select form-select-sm" },
+                                                                { key: "class", value: "form-control" },
                                                                 { key: "type", value: "text" },
-                                                                { key: "id", value: "apmSelectUserLogin" },
+                                                                { key: "id", value: "loginInputUserName" },
                                                             ],
                                                             children: []
                                                         }
@@ -385,3 +416,4 @@ app.template.blankEntry = {
         { objType: "textNode", content: "" }
     ]
 }
+

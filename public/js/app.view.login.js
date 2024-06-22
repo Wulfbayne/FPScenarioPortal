@@ -3,7 +3,7 @@ app.view.buildLogin = () => {
     let frame = document.getElementById("contentPanel");
     let prom = dome.generateObj(app.template.getTemplate("loginCard"), frame);
         prom.then(()=>{
-            app.view.buildUserList();
+            // app.view.buildUserList();
             dfd.resolve();
         });
     return dfd.promise(); 
@@ -30,12 +30,12 @@ app.view.buildUserList = () => {
 
 app.view.portalLogin = () =>{
     let user = {
-        uid : $("#apmSelectUserLogin").val(),
+        name : $("#loginInputUserName").val(),
         password:  $("#loginTextPasswordInput").val()
     }
-    if(user.uid){
-        if ($("#apmSelectUserLogin").hasClass("is-invalid")){
-            $("#apmSelectUserLogin").removeClass("is-invalid")
+    if(user.name){
+        if ($("#loginInputUserName").hasClass("is-invalid")){
+            $("#loginInputUserName").removeClass("is-invalid")
         }
         $.when(app.data.loginUser(user)).done((res) =>{
             if(!res.result){
@@ -48,11 +48,12 @@ app.view.portalLogin = () =>{
                 }       
                 alertify.success("Welcome");
                 // Launch into Application
+                app.ui.buildMainScreen();
             }
         });
     }
     else{
-        $("#apmSelectUserLogin").addClass("is-invalid");
+        $("#loginInputUserName").addClass("is-invalid");
         alertify.error("Invalid User");
     }
 }

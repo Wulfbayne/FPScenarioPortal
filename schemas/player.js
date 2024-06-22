@@ -6,10 +6,14 @@ const playerSchema = new Schema(
     {
         uid: {type: String, required: true, unique: true},
         name: {type: String, required: true, unique: true},
-        password: {type: String, required: true},
-        rfid: {type: String},
         team: {type: String},
-        unit: {type: String}
+        unit: {type: String},
+        paintAmt: {type: Number},
+        paintType: {type: String},
+        checkedIn: {type: Boolean},
+        hasBadge: {type: Boolean},
+        hasRFID: {type: Boolean},
+        rfid: {type: String} 
     }
 )
 

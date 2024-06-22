@@ -13,3 +13,9 @@ app.ui.buildShell = () => {
         })
     return dfd.promise(); 
 }
+
+app.ui.buildMainScreen = () =>{
+    $("#contentPanel").empty();
+    let frame = document.getElementById("contentPanel");
+    let prom = dome.generateObj(app.template.getTemplate("mainScreen"), frame);
+}
