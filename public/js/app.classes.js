@@ -26,6 +26,7 @@ const appConfig = new config();
 class setting{
     constructor(){
         this.users = [];
+        this.loggedIn = false;
     }
 
     get(name,type){

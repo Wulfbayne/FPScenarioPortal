@@ -162,7 +162,49 @@ app.template.contentFrame = {
                                                 { key: "style", value: "text-align: right;" },
                                                 { key: "id", value: "userMenuCol" }
                                             ],
-                                            children: []
+                                            children: [
+                                                {
+                                                    objType: "domElement",
+                                                    elem: "div",
+                                                    props: [
+                                                        { key: "class", value: "dropdown" }
+                                                    ],
+                                                    children: [
+                                                        {
+                                                            objType: "domElement",
+                                                            elem: "button",
+                                                            props: [
+                                                                { key: "class", value: "btn btn-light btn-sm btn-slim nav-btn cog" },
+                                                                { key: "type", value: "button" },
+                                                                { key: "data-bs-toggle", value: "dropdown" },
+                                                                { key: "aria-haspopup", value: "true" },
+                                                                { key: "aria-expanded", value: "false" },
+                                                                { key: "id", value: "userMenu" }
+                                                            ],
+                                                            children: [
+                                                                {
+                                                                    objType: "domElement",
+                                                                    elem: "i",
+                                                                    props: [
+                                                                        { key: "class", value: "fas fa-cogs" }
+                                                                    ],
+                                                                    children: []
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            objType: "domElement",
+                                                            elem: "div",
+                                                            props: [
+                                                                { key: "class", value: "dropdown-menu dropdown-menu-end" },
+                                                                { key: "aria-labelledby", value: "dropdown-menu" },
+                                                                { key: "id", value: "userMenuPanel" }
+                                                            ],
+                                                            children: []
+                                                        }
+                                                    ]
+                                                }
+                                            ]
                                         }
                                     ]
                                 }  
@@ -204,7 +246,7 @@ app.template.mainScreen = {
                 { key: "alt", value: ""},
                 { key: "title", value: "Freedom Park Banner"},
                 // {key: "style", value: "cursor: pointer;"},
-                {key: "src", value: "./assets/banner2.png"},
+                {key: "src", value: "./assets/banner3.png"},
                 { key: "style", value: "height:50%; width: 50%;"},
                 { key: "class", value: "align-middle"},
             ],

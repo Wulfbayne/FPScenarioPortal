@@ -34,7 +34,7 @@ body{
     background: var(--main-bg-color);
     top:20;
     width: 100%;
-    height: 96vh;
+    height: 98vh;
     padding: 2rem 9%;
     border-radius: 10px;
 }
