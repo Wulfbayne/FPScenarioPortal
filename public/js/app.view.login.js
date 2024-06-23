@@ -48,7 +48,7 @@ app.view.portalLogin = () =>{
                 }       
                 alertify.success("Welcome");
                 // Launch into Application
-                app.ui.buildMainScreen();
+                appSetting.login(res.role, res.name);                
             }
         });
     }

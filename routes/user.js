@@ -46,11 +46,12 @@ router.delete('/:uid', async (req, res) =>{
 
 router.post("/login", async (req, res) =>{
     let target = await user.find({name: req.body.name});
+    console.log(target);
     if (!target){
         res.send({result: false});
     }else{
         let isValid = await bcrypt.compare(req.body.password, target[0].password);
-        res.send({result: isValid});
+        res.send({result: isValid, role: target[0].role, name: target[0].name});
     }
 })
 

@@ -5,7 +5,7 @@ class config{
         this.userRoute = "/scenario/api/users";
     }
 
-    get(name,type){
+    get = (name,type) =>{
         switch (type){
             case "object":
                 return $.extend({}, this[name]);
@@ -16,7 +16,7 @@ class config{
         }
     }
 
-    setDocTitle(){
+    setDocTitle = () => {
         document.title = this.title;
     }
 }
@@ -27,6 +27,8 @@ class setting{
     constructor(){
         this.users = [];
         this.loggedIn = false;
+        this.userRole;
+        this.userName
     }
 
     get(name,type){
@@ -40,8 +42,16 @@ class setting{
         }
     }
 
-    set(name,value){
+    set = (name,value) =>{
         this[name] = value;
+    }
+
+    login = (role, name) =>{
+        this.loggedIn = true;
+        this.userRole = role;
+        this.userName = name;
+        app.ui.buildUserMenu();
+        app.ui.buildMainScreen();
     }
 }
 
