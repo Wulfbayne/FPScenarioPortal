@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const userRoute = require("./routes/user.js");
+const propRoute = require("./routes/prop.js");
 const ws  = require("ws");
 
 // Load Envs
@@ -21,6 +22,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(cors());
 app.use(compression());
 app.use(APIURL + "/users", userRoute);
+app.use(APIURL + "/props", propRoute);
 
 // Load DB
 mongoose.connect(MONGOURL)
