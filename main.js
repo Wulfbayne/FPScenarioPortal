@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const userRoute = require("./routes/user.js");
-// const { WebSocketServer } = require("ws");
+const ws  = require("ws");
 
 // Load Envs
 dotenv.config();
@@ -30,75 +30,18 @@ mongoose.connect(MONGOURL)
 // Load Index
 app.use("/scenario", express.static(path.join(__dirname, "public")));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Web Socket Server
+const wss = new ws.Server({server: app});
+
+wss.on('connection', connection = (ws) =>{
+    console.log("A NNew Client Connected");
+    ws.send("Welcome to the Freedom Park Scenario Portal");
+    ws.on("message", incoming = (message) => {
+        console.log("received: %s", message);
+    });
+
+    ws.send("something");
+})
 
 // Bottom of Server Applet
 app.use((req, res) => {
