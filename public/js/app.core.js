@@ -8,6 +8,8 @@ app.template = {};
 app.view = {};
 app.svc = {};
 
+const socket = io();
+
 $(document).ready(function(){
     app.init.pre();
     console.log("Jquery is Active");

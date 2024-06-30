@@ -2,7 +2,7 @@
   "name": "scen-serv",
   "version": "1.0.0",
   "description": "Webserver for Freedom Park Scenario Portal",
-  "main": "server.js",
+  "main": "./server/main.js",
   "scripts": {
     "start": "nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +19,7 @@
     "express": "^4.19.2",
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.1",
+    "socket.io": "^4.7.5",
     "ws": "^8.17.1"
   },
   "devDependencies": {
