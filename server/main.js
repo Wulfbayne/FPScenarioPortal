@@ -9,6 +9,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const userRoute = require("./routes/user.js");
 const propRoute = require("./routes/prop.js");
+// const globalErrorHandler = require('./middlewares/globalErrorHandler.js');
 
 
 // Load Envs
@@ -33,6 +34,7 @@ app.use(cors());
 app.use(compression());
 app.use(APIURL + "/users", userRoute);
 app.use(APIURL + "/props", propRoute);
+// app.use("*", globalErrorHandler);
 
 // Load DB
 mongoose.connect(MONGOURL)
@@ -40,24 +42,14 @@ mongoose.connect(MONGOURL)
 .catch((error) => console.log(error));
 
 // Load Index
-// app.use("/scenario", express.static(path.join(__dirname, "/../public")));
 app.use(express.static(path.join(__dirname, "/../public")));
 
-// Web Socket Server
-
-
 // Bottom of Server Applet
-// app.use((req, res) => {
-//     res.status(404);
-//     res.send('<h1>Error 404: Resource Not Found</h1>');
-// })
+app.use((req, res) => {
+    res.status(404);
+    res.send('<h1>Error 404: Resource Not Found</h1>');
+})
 
 server.listen(PORT, () => {
     console.log("App listening on port " + PORT);
 })
-
-
-// Load WSS
-// const wss = new WebSocketServer({ noServer: true });
-
-
