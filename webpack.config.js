@@ -30,7 +30,20 @@ module.exports = {
                         presets: ['@babel/preset-env']
                     }
                 }
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif|ico)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                          name: '[path][name].[ext]',
+                          outputPath: 'assets',
+                          publicPath: 'assets',
+                        },
+                    },
+                ]
+            },
         ]
     },
     plugins:[
@@ -44,11 +57,16 @@ module.exports = {
         static: {
             directory: path.join(__dirname, 'website'),
         },
-        proxy: {
-            '/': 'http://localhost:3000'
-        },
-        compress: true,
         port: 8080,
+        proxy: [
+            {
+                context: ['/scenario/api'],
+                target: 'http://localhost:3000',
+                secure: false,
+                changeOrigin: true
+            },
+        ],
+        compress: true,        
         open: true,
         hot: true,
         historyApiFallback: true

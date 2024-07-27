@@ -1,6 +1,8 @@
 import $ from "jquery";
 require("../../libs/jquery-utils-plugin/jquery-utils-plugin.js");
 
+
+
 class setting{
     constructor(){
         this.users = [];
@@ -27,9 +29,7 @@ class setting{
     login = (role, name) =>{
         this.loggedIn = true;
         this.userRole = role;
-        this.userName = name;
-        app.ui.buildUserMenu();
-        app.ui.buildMainScreen();
+        this.userName = name;        
     }
 }
 

@@ -1,10 +1,11 @@
 import $ from "jquery";
+window.$ = window.jQuery = $;
 require("../../libs/jquery-utils-plugin/jquery-utils-plugin.js");
 
 class config{
     constructor(){
         this.title = "Freedom Park Scenario Portal";
-        this.rootElem = "rootElem";
+        this.rootElem = "app_root_elem";
         this.userRoute = "/scenario/api/users";
     }
 

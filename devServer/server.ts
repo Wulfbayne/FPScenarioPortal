@@ -11,6 +11,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 
+import userRoute from "./routes/user";
+
 // Load Envs
 dotenv.config(
     { path: "./devServer/.env"}
@@ -33,6 +35,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors());
 app.use(compression());
+app.use(apiUrl + "/users", userRoute);
 
 // Load DB
 mongoose.connect(mongoUrl)
@@ -48,6 +51,6 @@ app.use((req, res) => {
     res.send('<h1>Error 404: Resource Not Found</h1>');
 })
 
-app.listen(3000, () => {
-    console.log("App listening on port " + 3000);
+app.listen(port, () => {
+    console.log("App listening on port " + port);
 })
