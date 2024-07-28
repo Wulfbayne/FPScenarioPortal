@@ -53,3 +53,10 @@ router.delete('/:uid', async (req, res) =>{
     const result = await Player.deleteOne({uid});
     res.send(result);
 })
+
+router.delete('/empty', async (req, res) =>{
+    const result = await Player.deleteMany({});
+    res.send(result);
+})
+
+export default router;
