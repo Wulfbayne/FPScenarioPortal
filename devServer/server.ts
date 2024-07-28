@@ -11,9 +11,13 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 
+import errorHandler from "./middlewares/errorHandler";;
+import notFound from "./errors/notFound";
+
 import userRoute from "./routes/user";
 import rolesRoute from "./routes/roles";
 import propRoute from "./routes/prop";
+import playerRoute from "./routes/player";
 
 // Load Envs
 dotenv.config(
@@ -47,6 +51,7 @@ app.use(compression());
 app.use(apiUrl + "/users", userRoute);
 app.use(apiUrl + "/roles", rolesRoute);
 app.use(apiUrl + "/props", propRoute);
+app.use(apiUrl + "/layer", playerRoute);
 
 // Load DB
 mongoose.connect(mongoUrl)
@@ -57,10 +62,16 @@ mongoose.connect(mongoUrl)
 app.use(express.static(path.join(__dirname, "/../website")));
 
 // Bottom of Server Applet
-app.use((req, res) => {
-    res.status(404);
-    res.send('<h1>Error 404: Resource Not Found</h1>');
-})
+// app.use((req, res) => {
+//     res.status(404);
+//     res.send('<h1>Error 404: Resource Not Found</h1>');
+// })
+
+app.use((req, res, next) => {
+    next(new notFound());
+});
+
+app.use(errorHandler);
 
 server.listen(port, () => {
     console.log("App listening on port " + port);
