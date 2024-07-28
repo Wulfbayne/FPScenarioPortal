@@ -12,6 +12,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import userRoute from "./routes/user";
+import rolesRoute from "./routes/roles";
+import propRoute from "./routes/prop";
 
 // Load Envs
 dotenv.config(
@@ -23,12 +25,19 @@ const mongoUrl = process.env.MONGO_URL as string;
 
 // Establish Server
 
-// const server = http.createServer(app);
-// const io = new Server(server);
+const server = http.createServer(app);
+const io = new Server(server, {
+    cors: {
+      origin: "*",  // Allow all origins
+      methods: ["GET", "POST"],  // Allow GET and POST methods
+      allowedHeaders: ["my-custom-header"],  // Allow specific custom headers
+      credentials: true  // Allow credentials
+    }
+  });
 
-// io.on("connection", (socket) => {
-//     console.log("Client Connected");
-// });
+io.on("connection", (socket) => {
+    console.log("Client Connected");
+});
 
 // Middleware
 app.use(express.json());
@@ -36,6 +45,8 @@ app.use(express.urlencoded({extended:true}));
 app.use(cors());
 app.use(compression());
 app.use(apiUrl + "/users", userRoute);
+app.use(apiUrl + "/roles", rolesRoute);
+app.use(apiUrl + "/props", propRoute);
 
 // Load DB
 mongoose.connect(mongoUrl)
@@ -51,6 +62,6 @@ app.use((req, res) => {
     res.send('<h1>Error 404: Resource Not Found</h1>');
 })
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log("App listening on port " + port);
 })

@@ -10,7 +10,7 @@ interface IUser extends Document {
     password: string;
     role: string;
     generateHash(password: string): Promise<string>;
-  }
+}
 
 const userSchema = new Schema<IUser>(
     {
