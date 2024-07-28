@@ -29,7 +29,13 @@ class setting{
     login = (role, name) =>{
         this.loggedIn = true;
         this.userRole = role;
-        this.userName = name;        
+        this.userName = name;
+    }
+
+    logout = () => {
+        this.loggedIn = false;
+        this.userRole = "";
+        this.userName = "";
     }
 }
 

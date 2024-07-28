@@ -5,6 +5,7 @@ import loginPanel from '../../templates/login';
 import { portalLogin } from "../../views/login";
 
 export const buildLogin = () => {
+    $("#contentPanel").empty();
     let dfd = $.Deferred();
     let prom = dome.generateObj(loginPanel, document.getElementById("contentPanel"));
     prom.then(() =>{

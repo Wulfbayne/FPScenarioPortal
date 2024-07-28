@@ -30,6 +30,14 @@ export const postInit = () => {
 }
 
 export const launch = () => {
+    $(window).resize( () => {
+        $("#" + appConfig.get("rootElem", "string")).css({
+            'height' : $(window).height(),
+        });
+        $("#contentPanel").css({
+            'height' : $(window).height() * .98,
+        });
+    });
     let splash = document.getElementById("splashScreen");
     splash.remove();
 }

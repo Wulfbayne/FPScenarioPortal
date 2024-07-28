@@ -4,7 +4,6 @@ export const getData = (opts) => {
 }
 
 export const postData = (opts) => {
-    console.log(opts);
     let promise = fetch(opts.route,{
         method: "POST",
         headers: { "Content-Type": "application/json" },

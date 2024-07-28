@@ -1,6 +1,43 @@
 /*
-    Base Application Styling
+    Freedom Park Scenario Portal Stylesheet
 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --frame-bg-color:#3D3D3D;
+    --main-bg-color: #eeeeee;
+    /* --main-color:; */
+    --text-color-light:#fff;
+    --text-color-dark: --bs-dark;
+}
+
+html{
+    /* font-size: 65%; */
+    overflow-x: hidden;
+}
+
+body{
+    background: var(--frame-bg-color);
+    color: var(--text-color-dark);
+}
+
+#contentPanel{
+    background: var(--main-bg-color);
+    top:20;
+    width: 100%;
+    height: 98vh;
+    padding: 2rem 9%;
+    border-radius: 10px;
+}
 .cog{
 	min-width: inherit;
 	/* padding-top: .5rem; */
@@ -15,25 +52,8 @@
 .textRight{
 	text-align: right;
 }
-#UserInfo{
-	text-align: right;
-	padding-right: 30px;
-}
-#RefreshTimer{
-	text-align: left;
-	padding-left: 30px;
-}
 .formLabel{
 	font-weight: bold;
-}
-#contentPanel{
-	margin-left: 10px;
-	margin-right: 10px;
-	border-radius: 4px;
-	background-color: #eeeeee;
-	overflow-x: auto;
-	padding-bottom: 15px;
-	padding-top: 15px;
 }
 .hide{
 	display:none !important;
@@ -46,16 +66,6 @@
 }
 .requiredField{
 	color:#721c24 !important;
-}
-.toolVersion{
-	font-size: 14px;
-	text-align: center;
-	cursor: pointer;
-}
-#topBanner{
-	text-align:center;
-    color:#fff;
-    font-family:Arial, Helvetica, sans-serif;
 }
 .topBarGreen{
     background-color:#586750;
@@ -111,12 +121,13 @@
 	max-height: 30px;
 }
 .slim{
-	padding: .15rem .35rem;
+	padding: .15rem .35rem !important;
 }
 .btn-wide{
 	padding-left:30px;
 	padding-right:30px;
 }
+
 /*
 	Bootstrap Modifications
 */
@@ -180,47 +191,6 @@
 .navbar-inverse .navbar-toggle{
 	border-color:#fff;
 }
-/* @media (max-width: 1199px) {
-    .navbar-header {
-        float: none;
-    }
-    .navbar-toggle {
-        display: block;
-    }
-    .navbar-collapse {
-        border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-    .navbar-collapse.collapse {
-        display: none!important;
-    }
-    .navbar-nav {
-        float: none!important;
-        margin: 7.5px -15px;
-    }
-    .navbar-nav>li {
-        float: none;
-    }
-    .navbar-nav>li>a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .navbar-text {
-        float: none;
-        margin: 15px 0;
-    } */
-    /* since 3.1.0 */
-    /* .navbar-collapse.collapse.in { 
-        display: block!important;
-    }
-    .collapsing {
-        overflow: hidden!important;
-    }
-} */
-
-/* .navbar-collapse{
-	padding-right:30px;	
-} */
 
 .navbar-inverse .navbar-brand{
 	height:inherit;
@@ -236,270 +206,3 @@
 	padding-left:2px;
 	padding-right: 2px;
 }
-
-/*
-	CSS Spinner
-*/
-
-.cssload-loader {
-	position: relative;
-	left: calc(50% - 31px);
-	width: 62px;
-	height: 62px;
-	border-radius: 50%;
-		-o-border-radius: 50%;
-		-ms-border-radius: 50%;
-		-webkit-border-radius: 50%;
-		-moz-border-radius: 50%;
-	perspective: 780px;
-}
-
-.cssload-inner {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-		-o-box-sizing: border-box;
-		-ms-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-	border-radius: 50%;
-		-o-border-radius: 50%;
-		-ms-border-radius: 50%;
-		-webkit-border-radius: 50%;
-		-moz-border-radius: 50%;	
-}
-
-.cssload-inner.cssload-one {
-	left: 0%;
-	top: 0%;
-	animation: cssload-rotate-one 1.15s linear infinite;
-		-o-animation: cssload-rotate-one 1.15s linear infinite;
-		-ms-animation: cssload-rotate-one 1.15s linear infinite;
-		-webkit-animation: cssload-rotate-one 1.15s linear infinite;
-		-moz-animation: cssload-rotate-one 1.15s linear infinite;
-	border-bottom: 3px solid rgb(0,0,0);
-}
-
-.cssload-inner.cssload-two {
-	right: 0%;
-	top: 0%;
-	animation: cssload-rotate-two 1.15s linear infinite;
-		-o-animation: cssload-rotate-two 1.15s linear infinite;
-		-ms-animation: cssload-rotate-two 1.15s linear infinite;
-		-webkit-animation: cssload-rotate-two 1.15s linear infinite;
-		-moz-animation: cssload-rotate-two 1.15s linear infinite;
-	border-right: 3px solid rgb(0,0,0);
-}
-
-.cssload-inner.cssload-three {
-	right: 0%;
-	bottom: 0%;
-	animation: cssload-rotate-three 1.15s linear infinite;
-		-o-animation: cssload-rotate-three 1.15s linear infinite;
-		-ms-animation: cssload-rotate-three 1.15s linear infinite;
-		-webkit-animation: cssload-rotate-three 1.15s linear infinite;
-		-moz-animation: cssload-rotate-three 1.15s linear infinite;
-	border-top: 3px solid rgb(0,0,0);
-}
-
-@keyframes cssload-rotate-one {
-	0% {
-		transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
-	}
-	100% {
-		transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
-	}
-}
-
-@-o-keyframes cssload-rotate-one {
-	0% {
-		-o-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
-	}
-	100% {
-		-o-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
-	}
-}
-
-@-ms-keyframes cssload-rotate-one {
-	0% {
-		-ms-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
-	}
-	100% {
-		-ms-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
-	}
-}
-
-@-webkit-keyframes cssload-rotate-one {
-	0% {
-		-webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
-	}
-	100% {
-		-webkit-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
-	}
-}
-
-@-moz-keyframes cssload-rotate-one {
-	0% {
-		-moz-transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
-	}
-	100% {
-		-moz-transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
-	}
-}
-
-@keyframes cssload-rotate-two {
-	0% {
-		transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
-	}
-	100% {
-		transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
-	}
-}
-
-@-o-keyframes cssload-rotate-two {
-	0% {
-		-o-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
-	}
-	100% {
-		-o-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
-	}
-}
-
-@-ms-keyframes cssload-rotate-two {
-	0% {
-		-ms-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
-	}
-	100% {
-		-ms-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
-	}
-}
-
-@-webkit-keyframes cssload-rotate-two {
-	0% {
-		-webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
-	}
-	100% {
-		-webkit-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
-	}
-}
-
-@-moz-keyframes cssload-rotate-two {
-	0% {
-		-moz-transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
-	}
-	100% {
-		-moz-transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
-	}
-}
-
-@keyframes cssload-rotate-three {
-	0% {
-		transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
-	}
-	100% {
-		transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
-	}
-}
-
-@-o-keyframes cssload-rotate-three {
-	0% {
-		-o-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
-	}
-	100% {
-		-o-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
-	}
-}
-
-@-ms-keyframes cssload-rotate-three {
-	0% {
-		-ms-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
-	}
-	100% {
-		-ms-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
-	}
-}
-
-@-webkit-keyframes cssload-rotate-three {
-	0% {
-		-webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
-	}
-	100% {
-		-webkit-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
-	}
-}
-
-@-moz-keyframes cssload-rotate-three {
-	0% {
-		-moz-transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
-	}
-	100% {
-		-moz-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
-	}
-}
-
-/*
-	Popper Tooltip Stylings
-*/
-
-.tooltip{
-	background: #333;
-	color: white;
-	font-weight: bold;
-	padding: 4px 8px;
-	font-size: 13px;
-	border-radius: 4px;
-	display: none;
-}
-
-.tooltip[data-show]{
-	display: block;
-}
-
-.arrow, .arrow::before{
-	position: absolute;
-	width: 8px;
-	height: 8px;
-	background: inherit;
-}
-
-.arrow{
-	visibility: hidden;
-}
-
-.arrow::before {
-	visibility: visible;
-	content: '';
-	transform: rotate(45deg);
-  }
-
-.tooltip[data-popper-placement^='top'] > .arrow {
-	bottom: -4px;
-  }
-
-.tooltip[data-popper-placement^='bottom'] > .arrow {
-	top: -4px;
-  }
-
-.tooltip[data-popper-placement^='left'] > .arrow {
-	right: -4px;
-  }
-
-.tooltip[data-popper-placement^='right'] > .arrow {
-	left: -4px;
-  }
-
-  /*
-  	Baseline Modifications
-  */
-button{
-	min-width: inherit;
-}
-
-.tox-tinymce{
-	width:100%;
-}
-
-table.dataTable tbody td {
-	vertical-align: top;
-  }

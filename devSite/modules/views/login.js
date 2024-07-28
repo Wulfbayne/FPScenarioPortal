@@ -4,6 +4,7 @@ import appSetting from "../classes/setting";
 import message from "../handlers/message";
 
 import { buildUserMenu, buildMainScreen } from "../builders/ui.js";
+import { buildLogin } from "../builders/views/login.js"
 import { loginUser } from "../data/exports";
 
 export const portalLogin = () => {
@@ -28,7 +29,7 @@ export const portalLogin = () => {
                 if ($("#loginInputUserName").hasClass("is-invalid")){
                     $("#loginInputUserName").removeClass("is-invalid")
                 }
-                message("success", "welcome");
+                message("success", "Welcome");
                 // Launch into Application
                 appSetting.login(res.role, res.name);   
                 buildUserMenu();
@@ -40,4 +41,11 @@ export const portalLogin = () => {
         $("#loginInputUserName").addClass("is-invalid");
         message("error", "Invalid User")
     }
+}
+
+export const portalLogout = () => {
+    appSetting.logout();
+    buildUserMenu();
+    buildLogin();
+    message("message", "Goodbye")
 }

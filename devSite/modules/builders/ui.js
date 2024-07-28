@@ -9,10 +9,11 @@ import splashScreen from "../templates/splashScreen";
 import modalPanel from "../templates/modalPanel";
 import contentFrame from "../templates/contentFrame";
 import mainScreen from "../templates/mainScreen";
+import adminUserMenu from "../templates/adminUserMenu";
+
+import { portalLogout } from "../views/login";
 
 import favicon from "../../assets/favicon.ico"
-
-
 
 export const buildSplashScreen = () =>{ 
     let dfd = $.Deferred();
@@ -40,6 +41,9 @@ export const buildShell = () => {
     document.getElementsByTagName('head')[0].appendChild(link);
     let prom = dome.generateObj(contentFrame, frame);
     prom.then(()=>{
+        $("#contentPanel").css({
+            'height' : $(window).height() * .98,
+        });
         appConfig.setDocTitle();
         buildUserMenu();
         dfd.resolve();
@@ -81,46 +85,10 @@ export const buildUserMenu = () => {
         }
         let prom = dome.generateObj(menuItemUser, panel);
     } else{
-        const userName = appSetting.get("userName", "string");
-        const menuItemUser = {
-            objType: "domElement",
-            elem: "li",
-            props: [],
-            children: [
-                {
-                    objType: "domElement",
-                    elem: "h6",
-                    props: [
-                        { key: "class", value: "dropdown-header text-center slim" },
-                    ],
-                    children: [
-                        {
-                            objType: "textNode",
-                            content: userName,
-                        }
-                    ]
-                }
-            ]
-        }
-        const menuItemdivider = {
-            objType: "domElement",
-            elem: "li",
-            props: [],
-            children: [
-                {
-                    objType: "domElement",
-                    elem: "hr",
-                    props: [
-                        { key: "class", value: "dropdown-divider" },
-                    ],
-                    children: [
-                    ]
-                }
-            ]
-        }
-        let prom = dome.generateObj(menuItemUser, panel);
-        let promDivider1 = dome.generateObj(menuItemdivider, panel);
-        let promDivider2 = dome.generateObj(menuItemdivider, panel);
+        
+        let prom = dome.generateObj(adminUserMenu, panel);
+
+        $("#portalLogoutBtn").click(portalLogout);
     }
 
 }
